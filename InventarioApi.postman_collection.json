@@ -1,0 +1,1250 @@
+{
+	"info": {
+		"_postman_id": "710dc2bb-ac23-4fb2-8d59-ec6d795fcb18",
+		"name": "InventarioApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "REGISTRO",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDI5NjQ3MywiaWF0IjoxNTU5NjkxNjczfQ.GxBsfYUaPU8N1zLqNg2O3JSE5GTul7Gh-2PNXx1hgv4wTP1RanuYH-OsgMHAP8uRxIuMHcNxkdJnIITnkKH2nA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Miguel\",\n    \"password\": \"1234\",\n    \"email\": \"1dam@salesianos.com\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOGIN",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "nombre",
+						"value": "admin",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "password",
+						"value": "admin",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LISTAR FULL INVENTARIO",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LISTAR MONITORES",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/monitor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"monitor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LISTAR PERIFERICOS",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMyNzkxMCwiaWF0IjoxNTU5NzIzMTEwfQ.i6opEBXRjW4NGvxgRnCJyjTRK1ucfz9LzXYidKZTLJeNevkpp5cjLnL4FLf-Kr6HVCFWyzWMbayd8SttszfqDw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/peripheral",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"peripheral"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LISTAR ELEMENTOSRED",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMyNzkxMCwiaWF0IjoxNTU5NzIzMTEwfQ.i6opEBXRjW4NGvxgRnCJyjTRK1ucfz9LzXYidKZTLJeNevkpp5cjLnL4FLf-Kr6HVCFWyzWMbayd8SttszfqDw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/networkDevice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"networkDevice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LISTAR CPUS",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/cpu",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"cpu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LISTAR UBICACIONES",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/location",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LISTAR PLANTILLACPU",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/cpuTemplates",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"cpuTemplates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD MONITOR",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"comentario\":\"Está mírame no me toques\",\n\t\"ubicacion\":{\n\t\t\"id\":1\n\t},\n\t\"marca\" : \"Sony\",\n\t\"tamanio\" : 21,\n\t\"vga\" : \"true\",\n\t\"dvi\" : \"true\",\n\t\"hdmi\":\"true\",\n\t\"altavoces\" : \"false\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/monitor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"monitor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD PERIFERICO",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ubicacion\":{\n\t\"id\":3\n\t},\n\t\"marca\":\"Fujistsu\",\n\t\"tipo\":\"KEYBOARD\",\n\t\"comentario\":\"Funciona correctamente\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/peripheral",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"peripheral"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD ELEMENTORED",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"comentario\":\"La pila está gastada\",\n\t\"ubicacion\":{\n\t\t\"id\":2\n\t},\n\t\"marca\" : \"Logitech\",\n    \"tipo\": \"SWITCH\"\n  }\n"
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/networkDevice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"networkDevice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD CPU",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"comentario\":\"Sin problema\",\n\t\"ubicacion\":{\n\t\t\"id\":3\n\t},\n\"tipoRAM1\":\"Ddr4\",\n\"tipoRAM2\":\"Ddr4\",\n\"tipoRAM3\":\"Ddr4\",\n\"tipoRAM4\":\"Ddr4\",\n\"tamanioRAM1\":\"4\",\n\"tamanioRAM2\":\"4\",\n\"tamanioRAM3\":\"4\",\n\"tamanioRAM4\":\"2\",\n\"velocidadRAM1\":\"1333 MHz\",\n\"velocidadRAM2\":\"1333 MHz\",\n\"velocidadRAM3\":\"1200 MHz\",\n\"velocidadRAM4\":\"1000 MHz\",\n\"tipoHD1\":\"SDD\",\n\"tipoHD2\":\"SDD\",\n\"tamanioHD1\":\"200\",\n\"tamanioHD2\":\"500\",\n\"plantillaCpus\":{\n\t\"id\":7\n}\n\t\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/cpu",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"cpu"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD UBICACION",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"nombre\": \"AULA 8\",\n    \"tipo\": \"aula\"\n  }\n"
+				},
+				"url": {
+					"raw": "http://localhost:9000/location",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ADD PLANTILLACPU",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \n    \"marca\":\"Fujitsu-Siemens\",\n    \"modelo\": \"ESPRIMO P2560\",\n    \"tipoRam\":\"DDR3\",\n    \"velocidadMaxRam\": \"800 Mhz\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:9000/cpuTemplates",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"cpuTemplates"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE MONITOR",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/monitor/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"monitor",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE PERIFERICO",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/peripheral/14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"peripheral",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE ELEMENTORED",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/networkDevice/13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"networkDevice",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE CPU",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/cpu/18",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"cpu",
+						"18"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE UBICACION",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/location/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"location",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE PLANTILLACPU",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/cpuTemplates/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"cpuTemplates",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EDITAR MONITOR",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"comentario\": \"Recién reparado\",\n    \"marca\": \"Sony\",\n    \"tamanio\": 21,\n    \"vga\": true,\n    \"dvi\": true,\n    \"hdmi\": true,\n    \"altavoces\": false\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/monitor/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"monitor",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EDIT PERIFERICO",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"comentario\": \"Le falta la letra L\",\n    \"marca\": \"Fujistsu\",\n    \"tipo\": \"KEYBOARD\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/peripheral/27",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"peripheral",
+						"27"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EDIT ELEMENTORED",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"comentario\": \"El Led funciona regular\",\n    \"tipo\": \"SWITCH\",\n    \"marca\": \"Logitech\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/networkDevice/12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"networkDevice",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EDIT CPU",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"comentario\":\"Limpiar polvo\",\n\"tipoRAM1\":\"Ddr4\",\n\"tipoRAM2\":\"Ddr4\",\n\"tipoRAM3\":\"Ddr4\",\n\"tipoRAM4\":\"Ddr4\",\n\"tamanioRAM1\":\"4\",\n\"tamanioRAM2\":\"4\",\n\"tamanioRAM3\":\"4\",\n\"tamanioRAM4\":\"2\",\n\"velocidadRAM1\":\"1333 MHz\",\n\"velocidadRAM2\":\"1333 MHz\",\n\"velocidadRAM3\":\"1200 MHz\",\n\"velocidadRAM4\":\"1000 MHz\",\n\"tipoHD1\":\"SDD\",\n\"tipoHD2\":\"SDD\",\n\"tamanioHD1\":\"200\",\n\"tamanioHD2\":\"500\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/cpu/19",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"cpu",
+						"19"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EDIT UBICACION",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Aula Informática 1\",\n    \"tipo\": \"Aula\"\n  }\n"
+				},
+				"url": {
+					"raw": "http://localhost:9000/location/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"location",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EDIT PLANTILLACPU",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \n    \"marca\":\"Lenovo\",\n    \"modelo\": \"ESPRIMO P960\",\n    \"tipoRam\":\"DDR4\",\n    \"velocidadMaxRam\": \"1333 Mhz\"\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:9000/cpuTemplates/7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"cpuTemplates",
+						"7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ONE MONITOR",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/monitor/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"monitor",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ONE PERIFERICO",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/peripheral/27",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"peripheral",
+						"27"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ONE ELEMENTORED",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/networkDevice/12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"networkDevice",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET ONE CPU",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/cpu/19",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"cpu",
+						"19"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDI5NjQ3MywiaWF0IjoxNTU5NjkxNjczfQ.GxBsfYUaPU8N1zLqNg2O3JSE5GTul7Gh-2PNXx1hgv4wTP1RanuYH-OsgMHAP8uRxIuMHcNxkdJnIITnkKH2nA",
+				"type": "string"
+			}
+		]
+	}
+}
