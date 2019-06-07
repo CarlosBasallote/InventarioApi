@@ -36,4 +36,20 @@ public class InventariableServicio extends BaseService<Inventariable, Long, Inve
 
 	}
 
+	public Integer sumatorioMonitor() {
+		return invRep.sumaM();
+	}
+
+	public Integer sumatorioCpu() {
+		return invRep.sumaC();
+	}
+
+	public Integer sumatorioPeriferico() {
+		return invRep.sumaP();
+	}
+
+	public Integer sumatorioElementoRed() {
+		return invRep.sumaE();
+	}
+
 }

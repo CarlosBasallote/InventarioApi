@@ -1,6 +1,7 @@
 package org.zerhusen.controller;
 
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,13 +23,19 @@ import org.zerhusen.model.Inventariable;
 import org.zerhusen.model.Monitor;
 import org.zerhusen.model.Periferico;
 import org.zerhusen.model.Ubicacion;
+import org.zerhusen.model.dto.ElementosUbicadosDto;
+import org.zerhusen.model.dto.SumatorioDto;
 import org.zerhusen.service.InventariableServicio;
+import org.zerhusen.service.UbicacionServicio;
 
 @RestController
 public class InventariableController {
 
 	@Autowired
 	private InventariableServicio invSer;
+
+	@Autowired
+	UbicacionServicio ubiSer;
 
 	@GetMapping(path = "/inventory")
 	public ResponseEntity<?> getInventory() {
@@ -201,8 +208,9 @@ public class InventariableController {
 		ElementoRed e = (ElementoRed) invSer.findById(id);
 		return ResponseEntity.accepted().body(e);
 	}
-	
-	//LOS IF DEL EDIT ES PARA QUE SE PUEDA EDITAR LOS CAMPOS QUE QUIERA SIN PERDER LOS ANTIGUOS
+
+	// LOS IF DEL EDIT ES PARA QUE SE PUEDA EDITAR LOS CAMPOS QUE QUIERA SIN PERDER
+	// LOS ANTIGUOS
 	@PutMapping("/inventory/monitor/{id}")
 	public ResponseEntity<?> editarMonitor(@PathVariable Long id, @RequestBody Monitor m) {
 		Monitor mon = (Monitor) invSer.findById(id);
@@ -234,8 +242,9 @@ public class InventariableController {
 		invSer.save(mon);
 		return ResponseEntity.status(HttpStatus.OK).body(mon);
 	}
-	
-	//LOS IF DEL EDIT ES PARA QUE SE PUEDA EDITAR LOS CAMPOS QUE QUIERA SIN PERDER LOS ANTIGUOS
+
+	// LOS IF DEL EDIT ES PARA QUE SE PUEDA EDITAR LOS CAMPOS QUE QUIERA SIN PERDER
+	// LOS ANTIGUOS
 	@PutMapping("/inventory/peripheral/{id}")
 	public ResponseEntity<?> editarPeriferico(@PathVariable Long id, @RequestBody Periferico p) {
 		Periferico per = (Periferico) invSer.findById(id);
@@ -256,7 +265,8 @@ public class InventariableController {
 		return ResponseEntity.status(HttpStatus.OK).body(per);
 	}
 
-	//LOS IF DEL EDIT ES PARA QUE SE PUEDA EDITAR LOS CAMPOS QUE QUIERA SIN PERDER LOS ANTIGUOS
+	// LOS IF DEL EDIT ES PARA QUE SE PUEDA EDITAR LOS CAMPOS QUE QUIERA SIN PERDER
+	// LOS ANTIGUOS
 	@PutMapping("/inventory/cpu/{id}")
 	public ResponseEntity<?> editarCpu(@PathVariable Long id, @RequestBody Cpu c) {
 		Cpu cpu = (Cpu) invSer.findById(id);
@@ -325,8 +335,9 @@ public class InventariableController {
 		invSer.save(cpu);
 		return ResponseEntity.status(HttpStatus.OK).body(cpu);
 	}
-	
-	//LOS IF DEL EDIT ES PARA QUE SE PUEDA EDITAR LOS CAMPOS QUE QUIERA SIN PERDER LOS ANTIGUOS
+
+	// LOS IF DEL EDIT ES PARA QUE SE PUEDA EDITAR LOS CAMPOS QUE QUIERA SIN PERDER
+	// LOS ANTIGUOS
 	@PutMapping("/inventory/networkDevice/{id}")
 	public ResponseEntity<?> editarElementoRed(@PathVariable Long id, @RequestBody ElementoRed e) {
 		ElementoRed ele = (ElementoRed) invSer.findById(id);
@@ -345,6 +356,63 @@ public class InventariableController {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		invSer.save(ele);
 		return ResponseEntity.status(HttpStatus.OK).body(ele);
+	}
+
+	@GetMapping("/inventory/sum/{tipo}")
+	public ResponseEntity<SumatorioDto> sumatorioTipo(@PathVariable("tipo") String tipo) {
+		int suma = 0;
+		List<Inventariable> listado = new ArrayList<>();
+		if (tipo.equals("monitor")) {
+			suma = invSer.sumatorioMonitor();
+			listado = invSer.listaMonitores();
+		} else if (tipo.equals("peripheral")) {
+			suma = invSer.sumatorioPeriferico();
+			listado = invSer.listaPerifericos();
+		} else if (tipo.equals("cpu")) {
+			suma = invSer.sumatorioCpu();
+			listado = invSer.listaCpus();
+		} else if (tipo.equals("networkDevice")) {
+			suma = invSer.sumatorioElementoRed();
+			listado = invSer.listaElementosRed();
+		}
+		SumatorioDto sumatorio = new SumatorioDto(tipo, suma, listado);
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		return ResponseEntity.status(HttpStatus.OK).body(sumatorio);
+	}
+
+	@GetMapping("/inventory/{ubicacion}/{tipo}")
+	public ResponseEntity<ElementosUbicadosDto> tipoPorUbicacion(@PathVariable("ubicacion") Ubicacion ubicacion,
+			@PathVariable("tipo") String tipo) {
+
+		final List<Inventariable> listado = new ArrayList<>();
+		if (tipo.equals("monitor")) {
+			invSer.listaMonitores().forEach(m -> {
+				if (m.getUbicacion().getId() == ubicacion.getId()) {
+					listado.add(m);
+				}
+			});
+		} else if (tipo.equals("peripheral")) {
+			invSer.listaPerifericos().forEach(p -> {
+				if (p.getUbicacion().getId() == ubicacion.getId()) {
+					listado.add(p);
+				}
+			});
+		} else if (tipo.equals("cpu")) {
+			invSer.listaCpus().forEach(c -> {
+				if (c.getUbicacion().getId() == ubicacion.getId()) {
+					listado.add(c);
+				}
+			});
+		} else if (tipo.equals("networkDevice")) {
+			invSer.listaElementosRed().forEach(e -> {
+				if (e.getUbicacion().getId() == ubicacion.getId()) {
+					listado.add(e);
+				}
+			});
+		}
+		ElementosUbicadosDto elementosUbicados = new ElementosUbicadosDto(ubicacion, tipo, listado);
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		return ResponseEntity.status(HttpStatus.OK).body(elementosUbicados);
 	}
 
 }

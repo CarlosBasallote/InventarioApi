@@ -1235,6 +1235,80 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "SUMATORIO DE UN TIPO",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/sum/monitor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"sum",
+						"monitor"
+					]
+				},
+				"description": "Al poner peripheral , monitor , cpu o networkDevice , te calcula la cantidad de esos productos. Además de devolverlos."
+			},
+			"response": []
+		},
+		{
+			"name": "LISTAR POR UBICACION Y TIPO",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2MDMzNjY2MCwiaWF0IjoxNTU5NzMxODYwfQ.qdqKsCYnPt8HS0toiAFKUHkk1hCDfCJ2bm3kZy0vaIUfN5pV2piC5rp-IlEADbK_CKUiCNPAPwIAXRKpPY2bmg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/inventory/3/monitor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"inventory",
+						"3",
+						"monitor"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"auth": {

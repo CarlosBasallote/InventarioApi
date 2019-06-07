@@ -30,4 +30,16 @@ public interface InventariableRepository extends JpaRepository<Inventariable, Lo
 	@Query("select c from Cpu c where c.plantillaCpus.id=?1")
 	List<Cpu> cpusDeUnaPlantilla(Long id);
 
+	@Query("select count(i) from Inventariable i where TYPE(i) = Monitor")
+	Integer sumaM();
+
+	@Query("select count(i) from Inventariable i where TYPE(i) = Periferico")
+	Integer sumaP();
+
+	@Query("select count(i) from Inventariable i where TYPE(i) = Cpu")
+	Integer sumaC();
+
+	@Query("select count(i) from Inventariable i where TYPE(i) = ElementoRed")
+	Integer sumaE();
+
 }
